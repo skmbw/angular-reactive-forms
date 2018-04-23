@@ -21,10 +21,12 @@ export class HeroDetailComponent implements OnInit {
   createForm() {
     this.heroForm = this.fb.group({
       name: ['', Validators.required], // <--- the FormControl called "name"
-      street: '',
-      city: '',
-      state: '',
-      zip: '',
+      address: this.fb.group({
+        street: '',
+        city: '',
+        state: '',
+        zip: ''
+      }),
       power: '',
       sidekick: ''
     });
