@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {states} from '../data-model';
+import {Address, states} from '../data-model';
 
 @Component({
   selector: 'app-hero-detail',
@@ -21,12 +21,7 @@ export class HeroDetailComponent implements OnInit {
   createForm() {
     this.heroForm = this.fb.group({
       name: ['', Validators.required], // <--- the FormControl called "name"
-      address: this.fb.group({
-        street: '',
-        city: '',
-        state: '',
-        zip: ''
-      }),
+      address: this.fb.group(new Address()), // 和数据模型保持接近
       power: '',
       sidekick: ''
     });
